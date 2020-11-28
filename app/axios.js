@@ -1,19 +1,13 @@
 const axios = require('axios');
  
 
-const getUsers = () => {
-    axios.get('https://api.github.com/users/miguelpimentel')
-    .then(function (response) {
-    // handle success
-    console.log(response.data);
-    })
-    .catch(function (error) {
-    // handle error
-    console.log(error);
-    })
-    .then(function () {
-    // always executed
-    });
+const getUsers = async () => {
+    //const res = await axios.get('https://api.github.com/users/miguelpimentel');
+    const res = await axios.get('https://jsonplaceholder.typicode.com/users');
+    
+    console.log(res.data);
+
+    return res.status;
 }
 
 getUsers();

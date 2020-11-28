@@ -1,7 +1,11 @@
 const fetch = require('../app/fetch');
 
-describe('Fetch', () => {
+describe('Fetch Lib', () => {
     test('get users', async () => {
-        await fetch.getUsers();
+        expect.assertions(1);
+        const ans = await fetch.getUsers();
+        console.log(ans);
+
+        expect(ans).toBe(200);
     })
 })

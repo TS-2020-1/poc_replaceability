@@ -1,9 +1,14 @@
 const fetch = require('node-fetch');
 
-const getUsers = () => {
-    fetch('https://api.github.com/users/miguelpimentel')
-    .then(res => res.json())
-    .then(json => console.log(json));
+const getUsers = async () => {
+
+    //const res = await fetch('https://api.github.com/users/miguelpimentel');
+    const res = await fetch('https://jsonplaceholder.typicode.com/users');
+    const user = await res.json();
+
+    console.log(user);
+
+    return res.status;
 }
 
 getUsers();
