@@ -80,7 +80,6 @@ const getHeaders = async () => {
 
 const getResponseUrl = async () => {
     const res = await axios.get('https://jsonplaceholder.typicode.com/users');
-    console.log(res.config);
     return res.config.url;
 }
 
