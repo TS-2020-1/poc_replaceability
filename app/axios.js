@@ -1,36 +1,32 @@
 const axios = require('axios');
 
 const url = 'https://jsonplaceholder.typicode.com';
-const body = {
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
-};
  
 // Get HTTP Success
 
-const getResponseData = async () => {
-    const res = await axios.get(`${url}/posts/1`);
+const getResponseData = async (postNumber) => {
+    const res = await axios.get(`${url}/posts/${postNumber}`);
     return res.data;
 }
 
-const putResponseData = async () => {
+const putResponseData = async (body) => {
     const res = await axios.put(`${url}/posts/1`, body);
     return res.data;
 }
 
-const postResponseData = async () => {
-    const res = await axios.post(`${url}/posts/1`);
+const postResponseData = async (body) => {
+    const res = await axios.post(`${url}/posts`, body);
     return res.data;
 }
 
-const patchResponseData = async () => {
+const patchResponseData = async (body) => {
     const res = await axios.patch(`${url}/posts/1`, body);
     return res.data;
 }
 
-const deleteResponseData = async () => {
-    const res = await axios.delete(`${url}/posts/1`, body);
+const deleteResponseData = async (postNumber) => {
+    const res = await axios.delete(`${url}/posts/${postNumber}`);
+    console.log(res.data);
     return res.data;
 }
 
@@ -82,6 +78,8 @@ const getResponseUrl = async () => {
     const res = await axios.get('https://jsonplaceholder.typicode.com/users');
     return res.config.url;
 }
+
+deleteResponseData(1);
 
 module.exports = {
     getStatusCode,
